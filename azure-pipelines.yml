@@ -1,0 +1,19 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: Docker@2
+  inputs:
+    containerRegistry: 'busbooking-ui'
+    repository: 'gokulr94ajan/busbooking-ui'
+    command: 'build'
+    Dockerfile: '**/Dockerfile'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'busbooking-ui'
+    repository: 'gokulr94ajan/busbooking-ui'
+    command: 'push'
